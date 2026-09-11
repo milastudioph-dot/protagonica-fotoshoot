@@ -1,0 +1,260 @@
+/* Protagónica Fotoshoot — Milairina Fotografía */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Raleway', system-ui, sans-serif;
+  background: #FFFFFF;
+  color: #3A0F1A;
+}
+
+a { color: #3A0F1A; text-decoration: none; }
+a:hover { color: #7A1B35; }
+
+h1 { font-family: 'Fredoka', system-ui, sans-serif; margin: 0; }
+h3 { font-family: 'Montserrat', system-ui, sans-serif; margin: 0; }
+h2 {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+p { margin: 0; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 40px; }
+
+@media (max-width: 1199px) {
+  .wrap { padding: 0 32px; }
+}
+
+@media (max-width: 767px) {
+  .wrap { padding: 0 24px; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 20px; }
+}
+
+/* --- "Imaginá tener tu propia biblioteca visual" collage --- */
+.imagina-circle { position:relative; max-width:560px; aspect-ratio:1/1; margin:56px auto; }
+.imagina-word {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-family:'Fredoka',system-ui,sans-serif; font-weight:600;
+  font-size:clamp(28px,5vw,42px); color:#7A1B35; letter-spacing:0.5px; z-index:1;
+}
+.imagina-photos { position:absolute; inset:0; z-index:1; }
+.imagina-photo {
+  position:absolute; width:78px; height:78px; border-radius:50%; object-fit:cover;
+  border:3px solid #FFFFFF; box-shadow:0 6px 18px rgba(58,15,26,0.25);
+}
+.imagina-photo-1 { top:19%; left:63%; transform:translate(-50%,-50%) rotate(-8deg); }
+.imagina-photo-2 { top:81%; left:37%; transform:translate(-50%,-50%) rotate(10deg); }
+.imagina-photo-3 { top:33%; left:21%; transform:translate(-50%,-50%) rotate(-12deg); }
+.imagina-photo-4 { top:79%; left:67%; transform:translate(-50%,-50%) rotate(8deg); }
+.imagina-chips { position:absolute; inset:0; }
+.imagina-chip {
+  position:absolute; transform:translate(-50%,-50%); padding:9px 16px; border-radius:999px;
+  background:#8A9A72; box-shadow:0 4px 10px rgba(58,15,26,0.16); font-size:13px;
+  white-space:nowrap; color:#3A0F1A; font-family:'Montserrat',sans-serif; font-weight:500;
+}
+.imagina-chip:nth-child(1) { top:8%; left:50%; transform:translate(-50%,-50%) rotate(-5deg); }
+.imagina-chip:nth-child(2) { top:20%; left:80%; transform:translate(-50%,-50%) rotate(4deg); }
+.imagina-chip:nth-child(3) { top:50%; left:92%; transform:translate(-50%,-50%) rotate(-3deg); }
+.imagina-chip:nth-child(4) { top:80%; left:80%; transform:translate(-50%,-50%) rotate(6deg); }
+.imagina-chip:nth-child(5) { top:92%; left:50%; transform:translate(-50%,-50%) rotate(-4deg); }
+.imagina-chip:nth-child(6) { top:80%; left:20%; transform:translate(-50%,-50%) rotate(3deg); }
+.imagina-chip:nth-child(7) { top:50%; left:8%; transform:translate(-50%,-50%) rotate(-6deg); }
+.imagina-chip:nth-child(8) { top:20%; left:20%; transform:translate(-50%,-50%) rotate(5deg); }
+
+@media (max-width: 767px) {
+  .imagina-circle {
+    position:static !important; aspect-ratio:auto !important; max-width:none !important;
+    margin:24px 0 !important; display:flex !important; flex-direction:column !important;
+    align-items:center !important; gap:16px !important;
+  }
+  .imagina-word { position:static !important; transform:none !important; }
+  .imagina-photos {
+    position:static !important; display:flex !important; flex-wrap:wrap !important;
+    justify-content:center !important; gap:12px !important; inset:auto !important;
+  }
+  .imagina-photo { position:static !important; transform:none !important; width:64px !important; height:64px !important; }
+  .imagina-chips {
+    position:static !important; display:flex !important; flex-wrap:wrap !important;
+    justify-content:center !important; gap:10px !important; inset:auto !important;
+  }
+  .imagina-chip { position:static !important; transform:none !important; }
+}
+
+/* --- hero photo (foto a todo el ancho, marca de agua y bajada centradas encima) --- */
+.hero-photo { position:relative; width:100%; height:80vh; height:80dvh; min-height:460px; max-height:820px; overflow:hidden; background:#3A0F1A; }
+.hero-photo-real { display:block; width:100%; height:100%; object-fit:cover; object-position:center center; }
+.hero-photo-content { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center; padding:0 24px; max-width:90%; }
+.hero-photo-watermark { width:min(50vw,360px); height:auto; pointer-events:none; }
+.hero-photo-tagline { font-family:'Poppins', system-ui, sans-serif; font-size:19px; font-weight:700; color:#FFFFFF; letter-spacing:0.3px; text-shadow:0 2px 10px rgba(0,0,0,0.45); max-width:480px; }
+.hero-photo-date { display:inline-block; padding:8px 22px; border-radius:999px; background:rgba(255,255,255,0.92); color:#3A0F1A; font-family:'Poppins', system-ui, sans-serif; font-weight:600; font-size:14px; letter-spacing:1.5px; box-shadow:0 4px 14px rgba(0,0,0,0.18); }
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .hero-photo { height:74vh; height:74dvh; min-height:440px; max-height:720px; }
+  .hero-photo-watermark { width:min(56vw,320px); }
+  .hero-photo-tagline { font-size:17px; max-width:380px; }
+  .hero-photo-date { font-size:13px; padding:7px 20px; }
+}
+
+@media (max-width: 767px) {
+  .hero-photo { height:70vh; height:70dvh; min-height:420px; max-height:640px; }
+  .hero-photo-watermark { width:min(72vw,280px); }
+  .hero-photo-tagline { font-size:15px; max-width:280px; }
+  .hero-photo-date { font-size:12px; padding:6px 18px; letter-spacing:1px; }
+}
+
+@media (max-width: 480px) {
+  .hero-photo { height:66vh; height:66dvh; min-height:380px; max-height:560px; }
+  .hero-photo-watermark { width:min(76vw,240px); }
+  .hero-photo-tagline { font-size:14px; max-width:250px; }
+  .hero-photo-date { font-size:11px; padding:6px 16px; }
+}
+
+/* --- mobile layout fixes --- */
+.two-col-grid { display:grid; grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr); gap:44px; align-items:start; }
+.checklist-grid { display:flex; flex-wrap:wrap; gap:20px 32px; }
+.checklist-item { flex:1 1 calc(50% - 16px); min-width:0; display:flex; gap:14px; align-items:flex-start; box-sizing:border-box; }
+.experience-cols { display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; align-items:start; }
+.experience-col { padding:36px 28px; background:#F8F3F5; border-radius:4px; text-align:center; }
+.experience-step-label { font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; letter-spacing:1px; text-transform:uppercase; color:#3A0F1A; margin-bottom:14px; }
+.experience-step-text { font-family:'Poppins',sans-serif; font-weight:400; font-size:14.5px; line-height:1.7; color:#3A0F1A; opacity:0.82; }
+.guia-prep-text { font-family:'Poppins',sans-serif; font-weight:700; font-size:19px; line-height:1.6; color:#3A0F1A; text-align:center; }
+.vidriera-block {
+  padding:32px 36px; background:#7A1B350d; border-left:3px solid #7A1B35;
+  border-radius:4px; display:flex; flex-direction:column; gap:18px;
+}
+.investment-card { border-radius:4px; padding:44px; display:flex; flex-direction:column; gap:20px; text-align:center; }
+.final-banner { width:100%; background:rgba(122,27,53,0.14); display:flex; align-items:stretch; min-height:460px; }
+.final-banner-text { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:32px; padding:48px 64px; text-align:center; }
+.final-question { font-size:clamp(26px,3.2vw,38px); color:#3A0F1A; margin:0; max-width:420px; font-weight:700; }
+.final-photo-placeholder {
+  flex:0 0 38%; max-width:520px; background:#F8F3F5;
+  border:1.5px dashed #C6A46A;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Poppins',sans-serif; font-weight:500; font-size:13px;
+  letter-spacing:0.5px; color:#3A0F1A77; text-align:center; padding:16px;
+}
+.final-photo {
+  flex:0 0 38%; max-width:520px; width:38%;
+  height:100%; object-fit:cover; display:block;
+}
+.payment-link-placeholder {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:18px 36px; border-radius:999px; border:1.5px dashed #C6A46A;
+  font-family:'Montserrat',sans-serif; font-weight:600; font-size:15px;
+  letter-spacing:0.3px; color:#3A0F1A99;
+}
+.editorial-frame { max-width:min(560px,38.8889vw); margin:max(-1010px,-70.139vw) auto 0 6%; padding:0 40px; position:relative; z-index:5; }
+.editorial-square { width:100%; aspect-ratio:3/2; background:#FFFFFF; }
+.editorial-logo-wrap { position:absolute; top:0; bottom:62%; left:42%; right:0; display:flex; align-items:center; justify-content:center; z-index:1; }
+.editorial-logo { width:min(20vw,220px); height:auto; opacity:0.85; }
+.editorial-accent-block { position:absolute; top:38%; bottom:38%; left:0; right:0; background:rgba(122,27,53,0.14); }
+.editorial-accent-text { position:absolute; top:0; bottom:0; right:0; width:58%; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:14px; padding:28px 48px; text-align:left; }
+.editorial-accent-kicker { font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(19px,2vw,25px); letter-spacing:1px; text-transform:uppercase; color:#FFFFFF; margin:0; }
+.editorial-accent-body { font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(13px,1.2vw,16px); line-height:1.6; color:#3A0F1A; margin:0; text-transform:uppercase; }
+.photo-banner-row { display:flex; gap:0; width:100%; margin-top:-214px; position:relative; z-index:2; }
+.photo-banner-photo { flex:1 1 33.3333%; width:33.3333%; height:50vh; min-height:320px; max-height:560px; object-fit:cover; display:block; }
+
+.lugar-overlay-text { position:absolute; top:40px; left:32px; max-width:min(80%,480px); display:flex; flex-direction:column; gap:16px; }
+.lugar-escenario-text { display:flex; flex-direction:column; gap:10px; }
+.lugar-escenario-kicker {
+  font-family:'Poppins',sans-serif; font-weight:700; text-transform:uppercase;
+  font-size:clamp(19px,2.3vw,26px); letter-spacing:0.5px; line-height:1.15;
+  color:#FFFFFF; margin:0; text-shadow:0 2px 10px rgba(0,0,0,0.45);
+}
+.lugar-escenario-body {
+  font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(14px,1.3vw,17px);
+  line-height:1.55; color:#FFFFFF; margin:0; text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+
+.lugar-inspo-label {
+  position:absolute; top:2%; right:4%; width:19%; max-width:230px; z-index:3;
+  text-align:right; font-family:'Raleway',sans-serif; font-weight:700;
+  text-transform:uppercase; font-size:clamp(20px,2.6vw,32px); line-height:1.05;
+  color:#3A0F1A; margin:0; text-shadow:none;
+}
+.lugar-inspo-bg {
+  position:absolute; top:0; bottom:0; right:max(0px, calc(4% - 51px)); width:34%; max-width:442px;
+  background:rgba(240,230,211,0.55); z-index:1;
+}
+.lugar-collage-single {
+  position:absolute; top:50%; right:4%; width:28%; max-width:340px; z-index:2;
+  aspect-ratio:9/16; object-fit:cover; display:block; transform:translateY(-50%);
+  border-radius:6px; border:3px solid #FFFFFF; box-shadow:0 8px 18px rgba(0,0,0,0.3);
+}
+
+/* --- Tablet (768px–899px): the editorial accent block scales down with the
+   square container faster than its text content, so on the narrower half of
+   the tablet band the "Solo 6 lugares" copy was clipping past the maroon
+   block. Trim its internal spacing/type here only — desktop (900px+) and
+   mobile (≤767px, handled separately below) are untouched. --- */
+@media (min-width: 768px) and (max-width: 899px) {
+  .editorial-accent-text { padding:12px 20px !important; gap:5px !important; }
+  .editorial-accent-kicker { font-size:14px !important; }
+  .editorial-accent-body { font-size:11.5px !important; line-height:1.4 !important; }
+}
+
+@media (max-width: 767px) {
+  .two-col-grid { grid-template-columns:1fr !important; gap:32px !important; }
+  .two-col-divider { display:none !important; }
+  .checklist-grid { gap:18px !important; }
+  .checklist-item { flex:1 1 100% !important; }
+  .experience-cols { grid-template-columns:1fr !important; gap:20px !important; }
+  .guia-prep-text { font-size:16px !important; }
+  .vidriera-block { padding:22px 18px !important; }
+  .investment-card { padding:32px 22px !important; }
+  .editorial-frame { padding:0 24px !important; margin:-270px auto 0 4% !important; width:58% !important; }
+  .editorial-logo-wrap { left:auto !important; right:0 !important; width:58% !important; justify-content:center !important; padding-left:82px !important; bottom:92% !important; }
+  .editorial-logo { width:min(18vw,65px) !important; transform:translateY(-11px) !important; }
+  .editorial-accent-block { top:4% !important; bottom:4% !important; }
+  .editorial-accent-text { padding:18px 14px 18px 22px !important; gap:10px !important; }
+  .editorial-accent-kicker { font-size:15px !important; }
+  .editorial-accent-body { font-size:12.5px !important; line-height:1.55 !important; }
+  .photo-banner-photo { height:32vh !important; min-height:200px !important; max-height:300px !important; }
+  .lugar-overlay-text { max-width:58% !important; gap:14px !important; }
+  .lugar-escenario-text { gap:9px !important; }
+  .lugar-escenario-kicker { font-size:16px !important; }
+  .lugar-escenario-body { font-size:13px !important; line-height:1.55 !important; }
+  .lugar-inspo-label { top:36% !important; right:3% !important; width:26% !important; max-width:110px !important; font-size:14px !important; color:#FFFFFF !important; text-shadow:0 2px 10px rgba(0,0,0,0.45) !important; }
+  .lugar-inspo-bg { top:44% !important; bottom:0 !important; right:calc(3% - 8px) !important; width:24% !important; max-width:90px !important; border-radius:0 !important; }
+  .lugar-collage-single { top:72% !important; right:3% !important; width:20% !important; max-width:74px !important; border-width:2px !important; border-radius:4px !important; box-shadow:0 4px 10px rgba(0,0,0,0.28) !important; transform:translateY(-50%) !important; }
+  .photo-banner-row { margin-top:-84px !important; }
+  .final-banner { flex-direction:column !important; min-height:0 !important; }
+  .final-banner-text { padding:32px 24px !important; gap:22px !important; }
+  .final-question { font-size:24px !important; max-width:100% !important; }
+  .final-photo-placeholder { flex:0 0 auto !important; max-width:100% !important; height:240px !important; }
+  .final-photo { flex:0 0 auto !important; max-width:100% !important; width:100% !important; height:240px !important; }
+}
+
+/* --- Mobile pequeño (≤480px): "Luz natural, deco y estilo" is set in a
+   fixed-floor clamp() that doesn't shrink below 28px, so on narrow phones it
+   was wrapping to 4 lines and pushing past the bottom of the lugar photo.
+   Scale the whole overlay block down progressively instead of just capping
+   the width tighter. --- */
+@media (max-width: 480px) {
+  .lugar-overlay-text { top:24px !important; left:20px !important; max-width:68% !important; gap:10px !important; }
+  .lugar-overlay-text > p { font-size:22px !important; line-height:1.15 !important; }
+  .lugar-escenario-text { gap:6px !important; }
+  .lugar-escenario-kicker { font-size:14px !important; }
+  .lugar-escenario-body { font-size:12px !important; line-height:1.4 !important; }
+  .editorial-accent-block { top:2% !important; bottom:2% !important; }
+  .editorial-accent-text { padding:14px 12px 14px 18px !important; gap:7px !important; }
+  .editorial-accent-kicker { font-size:14px !important; }
+  .editorial-accent-body { font-size:11px !important; line-height:1.42 !important; }
+  .editorial-logo { width:min(14vw,46px) !important; transform:translateY(-15px) !important; }
+}
+
+/* --- The smallest phones (≤350px, e.g. iPhone SE): the "quiebre editorial"
+   portrait photo is pulled up over the maroon block with a fixed -270px
+   margin. At this width the block above it is shorter than 270px, so the
+   photo reached back far enough to sit on top of the "Tu escenario" copy.
+   Pull it up less here only; 351px and wider keep the original -270px. --- */
+@media (max-width: 350px) {
+  .editorial-frame { margin-top:-220px !important; }
+}
