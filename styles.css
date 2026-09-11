@@ -1,4 +1,4 @@
-/* ProtagÃ³nica Fotoshoot â€” Milairina FotografÃ­a */
+/* Protagónica Fotoshoot — Milairina Fotografía */
 
 * { box-sizing: border-box; }
 
@@ -37,7 +37,7 @@ p { margin: 0; }
   .wrap { padding: 0 20px; }
 }
 
-/* --- "ImaginÃ¡ tener tu propia biblioteca visual" collage --- */
+/* --- "Imaginá tener tu propia biblioteca visual" collage --- */
 .imagina-circle { position:relative; max-width:560px; aspect-ratio:1/1; margin:56px auto; }
 .imagina-word {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
@@ -124,7 +124,12 @@ p { margin: 0; }
 .experience-col { padding:36px 28px; background:#F8F3F5; border-radius:4px; text-align:center; }
 .experience-step-label { font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; letter-spacing:1px; text-transform:uppercase; color:#3A0F1A; margin-bottom:14px; }
 .experience-step-text { font-family:'Poppins',sans-serif; font-weight:400; font-size:14.5px; line-height:1.7; color:#3A0F1A; opacity:0.82; }
-.guia-prep-text { font-family:'Poppins',sans-serif; font-weight:700; font-size:19px; line-height:1.6; color:#3A0F1A; text-align:center; }
+.guia-escenario-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.guia-escenario-col { display:flex; flex-direction:column; gap:12px; }
+.escenario-kicker { font-family:'Poppins',sans-serif; font-weight:700; text-transform:uppercase; font-size:14px; letter-spacing:1px; color:#7A1B35; margin:0; }
+.escenario-heading { font-family:'Poppins',sans-serif; font-weight:600; text-transform:uppercase; font-size:clamp(19px,2vw,22px); letter-spacing:0.3px; line-height:1.25; color:#3A0F1A; margin:0; }
+.escenario-body { font-family:'Poppins',sans-serif; font-weight:400; font-size:15px; line-height:1.65; color:#3A0F1A; opacity:0.85; margin:0; }
+.guia-prep-text { font-family:'Poppins',sans-serif; font-weight:400; font-size:15px; line-height:1.65; color:#3A0F1A; opacity:0.85; text-align:left; margin:0; }
 .vidriera-block {
   padding:32px 36px; background:#7A1B350d; border-left:3px solid #7A1B35;
   border-radius:4px; display:flex; flex-direction:column; gap:18px;
@@ -161,18 +166,6 @@ p { margin: 0; }
 .photo-banner-row { display:flex; gap:0; width:100%; margin-top:-214px; position:relative; z-index:2; }
 .photo-banner-photo { flex:1 1 33.3333%; width:33.3333%; height:50vh; min-height:320px; max-height:560px; object-fit:cover; display:block; }
 
-.lugar-overlay-text { position:absolute; top:40px; left:32px; max-width:min(80%,480px); display:flex; flex-direction:column; gap:16px; }
-.lugar-escenario-text { display:flex; flex-direction:column; gap:10px; }
-.lugar-escenario-kicker {
-  font-family:'Poppins',sans-serif; font-weight:700; text-transform:uppercase;
-  font-size:clamp(19px,2.3vw,26px); letter-spacing:0.5px; line-height:1.15;
-  color:#FFFFFF; margin:0; text-shadow:0 2px 10px rgba(0,0,0,0.45);
-}
-.lugar-escenario-body {
-  font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(14px,1.3vw,17px);
-  line-height:1.55; color:#FFFFFF; margin:0; text-shadow:0 2px 8px rgba(0,0,0,0.4);
-}
-
 .lugar-inspo-label {
   position:absolute; top:2%; right:4%; width:19%; max-width:230px; z-index:3;
   text-align:right; font-family:'Raleway',sans-serif; font-weight:700;
@@ -189,11 +182,11 @@ p { margin: 0; }
   border-radius:6px; border:3px solid #FFFFFF; box-shadow:0 8px 18px rgba(0,0,0,0.3);
 }
 
-/* --- Tablet (768pxâ€“899px): the editorial accent block scales down with the
+/* --- Tablet (768px–899px): the editorial accent block scales down with the
    square container faster than its text content, so on the narrower half of
    the tablet band the "Solo 6 lugares" copy was clipping past the maroon
-   block. Trim its internal spacing/type here only â€” desktop (900px+) and
-   mobile (â‰¤767px, handled separately below) are untouched. --- */
+   block. Trim its internal spacing/type here only — desktop (900px+) and
+   mobile (≤767px, handled separately below) are untouched. --- */
 @media (min-width: 768px) and (max-width: 899px) {
   .editorial-accent-text { padding:12px 20px !important; gap:5px !important; }
   .editorial-accent-kicker { font-size:14px !important; }
@@ -206,7 +199,7 @@ p { margin: 0; }
   .checklist-grid { gap:18px !important; }
   .checklist-item { flex:1 1 100% !important; }
 
-  /* "Lo que incluye la sesiÃ³n": on mobile the empty .checklist-grid left a
+  /* "Lo que incluye la sesión": on mobile the empty .checklist-grid left a
      large blank band under the heading (no items are populated). Tighten
      the section's own vertical padding so it doesn't read as a gap. */
   body > div > section:nth-of-type(2) { padding:44px 0 !important; }
@@ -217,22 +210,19 @@ p { margin: 0; }
   .experience-cols { grid-template-columns:1fr !important; gap:16px !important; }
   .experience-col { padding:26px 24px !important; }
 
-  /* "GuÃ­a de preparaciÃ³n": trim top/bottom padding to match the tighter
-     rhythm of the sections around it. */
+  /* "Tu escenario" + "Guía de preparación": trim top/bottom padding to match
+     the tighter rhythm of the sections around it, and stack the 2 columns
+     into 1 (escenario on top, guía below) since there's no room side by
+     side on a phone. */
   body > div > section:nth-of-type(4) { padding:40px 0 32px !important; }
-  .guia-prep-text { font-size:16px !important; }
+  .guia-escenario-grid { grid-template-columns:1fr !important; gap:28px !important; }
+  .escenario-heading { font-size:20px !important; }
+  .guia-prep-text { font-size:14.5px !important; }
 
   .vidriera-block { padding:22px 18px !important; }
   .investment-card { padding:32px 22px !important; }
   .editorial-frame { padding:0 24px !important; margin:-270px auto 0 4% !important; width:58% !important; }
 
-  /* Logo: previously squeezed into an 8%-tall sliver that overlapped the
-     accent block and rendered nearly invisible (~46x12px). Give it its own
-     clear band above the text so it's actually legible on a phone. */
-  /* Floor the square's height on mobile: at narrow widths (320-360px) the
-     3:2 ratio alone leaves too little room for a legible logo band plus the
-     kicker+body copy without clipping. A min-height (aspect-ratio still
-     governs anything wider) fixes the floor without touching desktop. */
   .editorial-square { min-height:300px !important; }
   .editorial-logo-wrap { left:auto !important; right:0 !important; width:58% !important; justify-content:center !important; padding-left:0 !important; top:0 !important; bottom:auto !important; height:48px !important; }
   .editorial-logo { width:min(24vw,100px) !important; transform:none !important; }
@@ -241,18 +231,8 @@ p { margin: 0; }
   .editorial-accent-kicker { font-size:15px !important; }
   .editorial-accent-body { font-size:12.5px !important; line-height:1.55 !important; }
 
-  /* Photo triptych: at 3 equal columns each strip is only ~1/3 of the phone
-     width, so give it more height to read as an intentional narrow
-     editorial column rather than a squeezed-looking sliver. */
   .photo-banner-photo { height:38vh !important; min-height:240px !important; max-height:340px !important; }
 
-  .lugar-overlay-text { max-width:58% !important; gap:14px !important; }
-  .lugar-escenario-text { gap:9px !important; }
-  .lugar-escenario-kicker { font-size:16px !important; }
-  .lugar-escenario-body { font-size:13px !important; line-height:1.55 !important; }
-
-  /* "La inspo" collage: was a cramped 74px-wide thumbnail; give it a touch
-     more presence so it reads as a real image, not an afterthought. */
   .lugar-inspo-label { top:34% !important; right:3% !important; width:26% !important; max-width:110px !important; font-size:15px !important; color:#FFFFFF !important; text-shadow:0 2px 10px rgba(0,0,0,0.45) !important; }
   .lugar-inspo-bg { top:43% !important; bottom:0 !important; right:calc(3% - 9px) !important; width:27% !important; max-width:100px !important; border-radius:0 !important; }
   .lugar-collage-single { top:72% !important; right:3% !important; width:23% !important; max-width:86px !important; border-width:2px !important; border-radius:4px !important; box-shadow:0 4px 10px rgba(0,0,0,0.28) !important; transform:translateY(-50%) !important; }
@@ -262,39 +242,20 @@ p { margin: 0; }
   .final-banner-text { padding:32px 24px !important; gap:22px !important; }
   .final-question { font-size:24px !important; max-width:100% !important; }
 
-  /* Final photo: a fixed 240px crop on a portrait photo left a very wide,
-     shallow letterbox showing mostly background. Taller crop keeps more of
-     Cami in frame. */
   .final-photo-placeholder { flex:0 0 auto !important; max-width:100% !important; height:400px !important; }
   .final-photo { flex:0 0 auto !important; max-width:100% !important; width:100% !important; height:400px !important; object-position:center 25% !important; }
 }
 
-/* --- Mobile pequeÃ±o (â‰¤480px): "Luz natural, deco y estilo" is set in a
-   fixed-floor clamp() that doesn't shrink below 28px, so on narrow phones it
-   was wrapping to 4 lines and pushing past the bottom of the lugar photo.
-   Scale the whole overlay block down progressively instead of just capping
-   the width tighter. --- */
+/* --- Mobile pequeño (≤480px) --- */
 @media (max-width: 480px) {
-  .lugar-overlay-text { top:24px !important; left:20px !important; max-width:68% !important; gap:10px !important; }
-  .lugar-overlay-text > p { font-size:22px !important; line-height:1.15 !important; }
-  .lugar-escenario-text { gap:6px !important; }
-  .lugar-escenario-kicker { font-size:14px !important; }
-  .lugar-escenario-body { font-size:12px !important; line-height:1.4 !important; }
-  /* Logo band stays the same fixed 48px height set at 767px above (must not
-     be re-overridden here as a %, or it shrinks with the viewport again and
-     reopens the same clipping/overlap bug at the narrowest phones). Just
-     scale the logo mark itself down a little further. */
+  .escenario-heading { font-size:18px !important; }
   .editorial-logo { width:min(20vw,78px) !important; }
   .editorial-accent-text { padding:12px 12px 12px 18px !important; gap:7px !important; }
   .editorial-accent-kicker { font-size:14px !important; }
   .editorial-accent-body { font-size:11px !important; line-height:1.42 !important; }
 }
 
-/* --- The smallest phones (â‰¤350px, e.g. iPhone SE): the "quiebre editorial"
-   portrait photo is pulled up over the maroon block with a fixed -270px
-   margin. At this width the block above it is shorter than 270px, so the
-   photo reached back far enough to sit on top of the "Tu escenario" copy.
-   Pull it up less here only; 351px and wider keep the original -270px. --- */
+/* --- The smallest phones (≤350px, e.g. iPhone SE) --- */
 @media (max-width: 350px) {
   .editorial-frame { margin-top:-220px !important; }
 }
