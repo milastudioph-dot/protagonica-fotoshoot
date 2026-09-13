@@ -207,26 +207,25 @@ p { margin: 0; }
   border-radius:6px; border:3px solid #FFFFFF; box-shadow:0 8px 18px rgba(0,0,0,0.3);
 }
 
-/* --- Tablet (768px–899px): the editorial accent block scales down with the
+/* --- Tablet (768px-899px): the editorial accent block scales down with the
    square container faster than its text content, so on the narrower half of
    the tablet band the "Solo 6 lugares" copy was clipping past the maroon
-   block. Trim its internal spacing/type here only — desktop (900px+) and
-   mobile (≤767px, handled separately below) are untouched. --- */
+   block. Trim its internal spacing/type here only - desktop (900px+) and
+   mobile (<=767px, handled separately below) are untouched. --- */
 @media (min-width: 768px) and (max-width: 899px) {
   .editorial-accent-text { padding:12px 20px !important; gap:5px !important; }
   .editorial-accent-kicker { font-size:14px !important; }
   .editorial-accent-body { font-size:11.5px !important; line-height:1.4 !important; }
 }
 
-/* "¿Lista para mostrarte...?" CTA final: entre 768px y ~1023px la columna de
-   texto junto a la foto (flex:1 dentro de .final-banner) queda con menos
-   ancho del que .payment-columns necesita para mostrar las 2 columnas de
-   pago lado a lado, y el título/badge/botón de WhatsApp terminaban
-   recortados fuera de la pantalla (ocultos por el overflow-x:hidden del
-   body, sin scrollbar visible — el problema no se notaba a simple vista).
-   Se apilan las columnas de pago y se ajusta el padding/tamaño de texto
-   solo en este rango; desktop (1024px+, verificado también en 1440px) y
-   mobile (≤767px, con su propio stacking) quedan intactos. */
+/* CTA final: entre 768px y ~1023px la columna de texto junto a la foto
+   (flex:1 dentro de .final-banner) queda con menos ancho del que
+   .payment-columns necesita para mostrar las 2 columnas de pago lado a
+   lado, y el titulo/badge/boton de WhatsApp terminaban recortados fuera de
+   la pantalla (ocultos por el overflow-x:hidden del body, sin scrollbar
+   visible). Se apilan las columnas de pago y se ajusta el padding/tamano de
+   texto solo en este rango; desktop (1024px+) y mobile (<=767px) quedan
+   intactos. */
 @media (min-width: 768px) and (max-width: 1023px) {
   .final-banner-text { padding:36px 28px !important; gap:20px !important; }
   .final-question { font-size:22px !important; }
@@ -240,27 +239,14 @@ p { margin: 0; }
   .checklist-grid { gap:18px !important; }
   .checklist-item { flex:1 1 100% !important; }
 
-  /* "Lo que incluye la sesión": on mobile the empty .checklist-grid left a
-     large blank band under the heading (no items are populated). Tighten
-     the section's own vertical padding so it doesn't read as a gap. */
   body > div > section:nth-of-type(2) { padding:44px 0 !important; }
   body > div > section:nth-of-type(2) h2 { margin-bottom:0 !important; }
 
-  /* "Pasos" cards: same copy, less padding so three stacked cards feel like
-     a compact mobile list instead of three large near-empty boxes. */
   .experience-cols { grid-template-columns:1fr !important; gap:16px !important; }
   .experience-col { padding:26px 24px !important; }
 
-  /* "Tu escenario" + "Guía de preparación": trim top/bottom padding to match
-     the tighter rhythm of the sections around it, and stack the 2 columns
-     into 1 (escenario on top, guía below) since there's no room side by
-     side on a phone. */
   body > div > section:nth-of-type(4) { padding:40px 0 32px !important; }
 
-  /* "Tu escenario" y "Guía de preparación" como 2 columnas bien definidas:
-     se apilan en mobile (no entran lado a lado) pero cada una conserva su
-     propio borde izquierdo + sangría, así se leen como 2 bloques separados
-     y no como un solo párrafo continuo. */
   .guia-escenario-grid { grid-template-columns:1fr !important; gap:28px !important; }
   .guia-escenario-col { padding-left:18px !important; }
   .escenario-heading { font-size:20px !important; }
@@ -270,13 +256,6 @@ p { margin: 0; }
   .investment-card { padding:32px 22px !important; }
   .editorial-frame { padding:0 24px !important; margin:-270px auto 0 4% !important; width:58% !important; }
 
-  /* Logo: previously squeezed into an 8%-tall sliver that overlapped the
-     accent block and rendered nearly invisible (~46x12px). Give it its own
-     clear band above the text so it's actually legible on a phone. */
-  /* Floor the square's height on mobile: at narrow widths (320-360px) the
-     3:2 ratio alone leaves too little room for a legible logo band plus the
-     kicker+body copy without clipping. A min-height (aspect-ratio still
-     governs anything wider) fixes the floor without touching desktop. */
   .editorial-square { min-height:300px !important; }
   .editorial-logo-wrap { left:auto !important; right:0 !important; width:58% !important; justify-content:center !important; padding-left:0 !important; top:0 !important; bottom:auto !important; height:48px !important; }
   .editorial-logo { width:min(24vw,100px) !important; transform:none !important; }
@@ -285,13 +264,8 @@ p { margin: 0; }
   .editorial-accent-kicker { font-size:15px !important; }
   .editorial-accent-body { font-size:12.5px !important; line-height:1.55 !important; }
 
-  /* Photo triptych: at 3 equal columns each strip is only ~1/3 of the phone
-     width, so give it more height to read as an intentional narrow
-     editorial column rather than a squeezed-looking sliver. */
   .photo-banner-photo { height:38vh !important; min-height:240px !important; max-height:340px !important; }
 
-  /* "La inspo" collage: was a cramped 74px-wide thumbnail; give it a touch
-     more presence so it reads as a real image, not an afterthought. */
   .lugar-inspo-label { top:34% !important; right:3% !important; width:26% !important; max-width:110px !important; font-size:15px !important; color:#FFFFFF !important; text-shadow:0 2px 10px rgba(0,0,0,0.45) !important; }
   .lugar-inspo-bg { top:43% !important; bottom:0 !important; right:calc(3% - 9px) !important; width:27% !important; max-width:100px !important; border-radius:0 !important; }
   .lugar-collage-single { top:72% !important; right:3% !important; width:23% !important; max-width:86px !important; border-width:2px !important; border-radius:4px !important; box-shadow:0 4px 10px rgba(0,0,0,0.28) !important; transform:translateY(-50%) !important; }
@@ -301,16 +275,12 @@ p { margin: 0; }
   .final-banner-text { padding:32px 24px !important; gap:22px !important; }
   .final-question { font-size:24px !important; max-width:100% !important; }
 
-  /* Final photo: a fixed 240px crop on a portrait photo left a very wide,
-     shallow letterbox showing mostly background. Taller crop keeps more of
-     Cami in frame. */
   .final-photo-placeholder { flex:0 0 auto !important; max-width:100% !important; height:400px !important; }
   .final-photo { flex:0 0 auto !important; max-width:100% !important; width:100% !important; height:400px !important; object-position:center 25% !important; }
   .payment-columns { flex-direction:column !important; max-width:280px !important; gap:20px !important; }
   .payment-column-divider { width:100% !important; height:1px !important; }
 }
 
-/* --- Mobile pequeño (≤480px) --- */
 @media (max-width: 480px) {
   .escenario-heading { font-size:18px !important; }
   .editorial-logo { width:min(20vw,78px) !important; }
@@ -319,11 +289,6 @@ p { margin: 0; }
   .editorial-accent-body { font-size:11px !important; line-height:1.42 !important; }
 }
 
-/* --- The smallest phones (≤350px, e.g. iPhone SE): la foto de la "quiebre
-   editorial" se sube sobre el bloque bordó con un margin fijo de -270px.
-   A este ancho el bloque de arriba es más bajo que 270px, y la foto llegaba
-   a superponerse con el texto de "Tu escenario". Se sube menos acá; 351px
-   en adelante mantiene el -270px original. --- */
 @media (max-width: 350px) {
   .editorial-frame { margin-top:-220px !important; }
 }
